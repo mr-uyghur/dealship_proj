@@ -33,6 +33,7 @@ LOGIN_REDIRECT_URL = 'dashboard'
 # Application definition
 
 INSTALLED_APPS = [
+    'contact',
     'accounts',
     'cars',
     'pages.apps.PagesConfig',
