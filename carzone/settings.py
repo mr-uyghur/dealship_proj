@@ -91,10 +91,22 @@ WSGI_APPLICATION = 'carzone.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'carzone_db',
+        'USER':'postgres',
+        'PASSWORD':'root',
+        'HOST' : 'localhost',
+        'PORT':'5432',
     }
 }
+
+# LOCAL DATA BASE
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 
 # Password validation
@@ -155,3 +167,10 @@ MESSAGE_TAGS = {
 }
 
 SITE_ID = 1
+
+# for Email
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'devuyghur1996@gmail.com'
+EMAIL_HOST_PASSWORD = 'RootRoot'
+EMAIL_USE_TLS = True
