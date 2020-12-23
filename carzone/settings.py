@@ -93,6 +93,7 @@ WSGI_APPLICATION = 'carzone.wsgi.application'
 
 
 DATABASE = {
+    'ENGINE': 'django.db.backends.postgresql',
     'default':dj_database_url.config(default = "postgres://postgres:root@localhost/carzone_db")
 }
 
