@@ -92,10 +92,7 @@ WSGI_APPLICATION = 'carzone.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 
-DATABASE = {
-    'ENGINE': 'django.db.backends.postgresql',
-    'default':dj_database_url.config(default = "postgres://postgres:root@localhost/carzone_db")
-}
+DATABASES['default'] = {'ENGINE': 'django.db.backends.postgresql','default':dj_database_url.config(default = "postgres://postgres:root@localhost/carzone_db")}
 
 
 # pg databse
