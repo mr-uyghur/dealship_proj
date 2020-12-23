@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '@clp2-uvw!!8ba7w=1fm5ll^aa@8%fss#ga#*vlc&v@-)8*%=#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -63,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'carzone.urls'
@@ -89,16 +91,24 @@ WSGI_APPLICATION = 'carzone.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'carzone_db',
-        'USER':'postgres',
-        'PASSWORD':'root',
-        'HOST' : 'localhost',
-        'PORT':'5432',
-    }
+
+DATABASE = {
+    'default':dj_database_url.config(default = "postgres://postgres:root@localhost/carzone_db")
 }
+
+
+# pg databse
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'carzone_db',
+#         'USER':'postgres',
+#         'PASSWORD':'root',
+#         'HOST' : 'localhost',
+#         'PORT':'5432',
+#     }
+# }
+
 
 # LOCAL DATA BASE
 # DATABASES = {
@@ -174,3 +184,6 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'devuyghur1996@gmail.com'
 EMAIL_HOST_PASSWORD = 'RootRoot'
 EMAIL_USE_TLS = True
+
+#WhiteNoise settings
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
