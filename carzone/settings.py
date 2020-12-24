@@ -26,7 +26,7 @@ SECRET_KEY = '@clp2-uvw!!8ba7w=1fm5ll^aa@8%fss#ga#*vlc&v@-)8*%=#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['fathomless-earth-74343.herokuapp.com', 'openCarzone.io', 'www.openCarzone.io']
 
 LOGIN_REDIRECT_URL = 'dashboard'
 
